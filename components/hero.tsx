@@ -1,6 +1,12 @@
+'use client';
+
 import Image from 'next/image';
+import { CustomButton } from '.';
 
 export default function Hero() {
+   function handleScroll() {
+   }
+
    return (
       <div className='hero'>
          <div className='flex-1 pt-36 padding-x'>
@@ -10,6 +16,21 @@ export default function Hero() {
             <p className='hero__subtitle'>
                Streamline your car rental experience with our effortless booking process.
             </p>
+            <CustomButton
+               title='Explore Cars'
+               containerStyles='bg-primary-blue text-white rounded-full mt-10'
+               handleClick={handleScroll}
+            />
+         </div>
+         <div className='hero__image-container'>
+            <div className='hero__image'>
+               <Image src='/hero.png' alt='hero car image' fill priority
+                  className='object-contain'
+               />
+               <div className='hero__image-overlay'>
+
+               </div>
+            </div>
          </div>
       </div>
    )
