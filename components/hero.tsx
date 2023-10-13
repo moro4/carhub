@@ -27,10 +27,8 @@ export default function Hero() {
                <Image src='/hero.png' alt='hero car image' fill priority
                   className='object-contain'
                />
-               <div className='hero__image-overlay'>
-
-               </div>
             </div>
+            <div className='hero__image-overlay'></div>
          </div>
       </div>
    )
