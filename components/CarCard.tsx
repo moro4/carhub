@@ -1,21 +1,21 @@
 'use client';
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image";
 import { carProps } from "@/types";
 import { CarDetails, CustomButton } from '.';
-import { calculateCarRent } from "@/utils";
+import { calculateCarRent, constructCarImgURL } from "@/utils";
 
 export default function CardCard({ car }: carProps) {
+
+   const [isOpen, setIsOpen] = useState(false);
 
    const {city_mpg, year, make, model, transmission, drive} = car;
    const carRent = calculateCarRent(city_mpg, year);
    const transmiss = transmission === 'a' ? 'Automatic' : 'Manual';
-   const [isOpen, setIsOpen] = useState(false);
 
    return (
       <div className="car-card group">
-
          {/* Heading */}
          <div className="car-card__content">
             <h2 className="car-card__content-title">{make} {model}</h2>
@@ -34,9 +34,8 @@ export default function CardCard({ car }: carProps) {
 
          {/* Car Image */}
          <div className="relative w-full h-40 m-3 object-contain">
-            {/* Image placeholder */}
-            <Image src='/hero.png' alt="car placeholder" fill priority
-            className="object-contain"/>
+            <Image src={constructCarImgURL(car)} alt="car" fill
+               className="object-contain" />
          </div>
 
          {/* Car Features */}
@@ -57,18 +56,14 @@ export default function CardCard({ car }: carProps) {
                <div className="flex flex-col justify-center items-center
                   gap-2"
                >
-                  <Image src='/tire.svg' width='20' height='20'
-                     alt="tire"
-                  />
+                  <Image src='/tire.svg' width='20' height='20' alt="tire" />
                   <p className="text-[14px]">{drive.toUpperCase()}</p>
                </div>
 
                <div className="flex flex-col justify-center items-center
                   gap-2"
                >
-                  <Image src='/gas.svg' width='20' height='20'
-                     alt="gas"
-                  />
+                  <Image src='/gas.svg' width='20' height='20' alt="gas" />
                   <p className="text-[14px]">{city_mpg} MPG</p>
                </div>
 
@@ -84,6 +79,14 @@ export default function CardCard({ car }: carProps) {
                />
             </div>
          </div>
+
+         {/*Modal popup for further car details */}
+         <CarDetails
+            isOpen={isOpen}
+            closeModal={() => setIsOpen(false)}
+            car={car}
+         />
+
       </div>
    )
 }

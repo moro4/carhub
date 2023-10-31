@@ -39,3 +39,9 @@ export interface carProps {
       year: number
    }
 }
+
+export interface CarDetailsProps {
+   isOpen: boolean,
+   closeModal: () => void,
+   car: carProps['car']
+}

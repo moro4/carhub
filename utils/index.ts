@@ -1,8 +1,8 @@
-import { rapidapiOptions } from "@/types";
+import { carProps, rapidapiOptions } from "@/types";
 
 export async function fetchCarData() {
 
-   const url = 'https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=bmw';
+   const url = 'https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=volkswagen';
    const options: rapidapiOptions = {
       method: 'GET',
       headers: {
@@ -20,7 +20,19 @@ export async function fetchCarData() {
    } catch (error) {
       console.log(error);
    }
+}
 
+export function constructCarImgURL(
+   // It constructs a URL to call the internal API which itself fetches the data
+   // from an external source. This roundabout approach is done solely for the
+   // purpose of concealing sensitive information stored in the URL
+   car: carProps['car'], angle: string = '45'
+   ): string {
+   let url = '/api/img/';
+   url = url + `${car.year}/${car.make}/${car.model.split(' ')[0]}
+      /${'fullscreen'}/${angle}`;
+
+   return url;
 }
 
 export const calculateCarRent = (city_mpg: number, year: number) => {
@@ -40,3 +52,11 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
 
    return rentalRatePerDay.toFixed(0);
 };
+
+
+// url.searchParams.append('customer', process.env.CARIMG_APIKEY as string);
+// url.searchParams.append('make', make);
+// url.searchParams.append('modelFamily', model.split(' ')[0]);
+// url.searchParams.append('zoomType', 'fullscreen');
+// url.searchParams.append('modelYear', year.toString());
+// url.searchParams.append('angle', i);

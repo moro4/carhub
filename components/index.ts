@@ -5,6 +5,17 @@ import Footer from './Footer';
 import CustomFilter from './CustomFilter';
 import SearchBar from './SearchBar';
 import SearchManufacturer from './SearchManufacturer';
+import CarCard from './CarCard';
+import CarDetails from './CarDetails';
+import {
+   Table,
+   TableBody,
+   TableCaption,
+   TableCell,
+   TableHead,
+   TableHeader,
+   TableRow
+ } from './Table';
 
 export {
    Hero,
@@ -13,5 +24,14 @@ export {
    CustomButton,
    CustomFilter,
    SearchBar,
-   SearchManufacturer
+   SearchManufacturer,
+   CarCard,
+   CarDetails,
+   Table,
+   TableBody,
+   TableCaption,
+   TableCell,
+   TableHead,
+   TableHeader,
+   TableRow
 };
