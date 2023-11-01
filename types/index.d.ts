@@ -1,4 +1,4 @@
-import { PointerEventHandler } from "react";
+import { PointerEventHandler } from 'react';
 
 export interface CustomButtonProps {
    title: string,

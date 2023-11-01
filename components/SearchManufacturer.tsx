@@ -1,11 +1,11 @@
 'use client';
 
-import Image from "next/image";
-import { SearchManufacturerProps } from "@/types";
+import Image from 'next/image';
+import { SearchManufacturerProps } from '@/types';
 import {Transition, Combobox} from '@headlessui/react';
-import { useState, Fragment } from "react";
+import { useState, Fragment } from 'react';
 import {manufacturers} from '@/constants';
-import { log } from "console";
+import { log } from 'console';
 
 export default function SearchManufacturer(
    {manufacturer, setManufacturer}: SearchManufacturerProps
@@ -22,10 +22,10 @@ export default function SearchManufacturer(
          )
 
    return (
-      <div className="search-manufacturer">
+      <div className='search-manufacturer'>
          <Combobox value={manufacturer} onChange={setManufacturer}>
-            <div className="w-full shadow-md rounded-md ring-1 ring-black
-               ring-opacity-5"
+            <div className='w-full shadow-md rounded-md ring-1 ring-black
+               ring-opacity-5'
             >
                   <Combobox.Button className='absolute top-[14px]'>
                      <Image
@@ -44,9 +44,9 @@ export default function SearchManufacturer(
                   />
                   <Transition
                      as={Fragment}
-                     leave="transition ease-in duration-100"
-                     leaveFrom="opacity-100"
-                     leaveTo="opacity-0"
+                     leave='transition ease-in duration-100'
+                     leaveFrom='opacity-100'
+                     leaveTo='opacity-0'
                      afterLeave={() => setQuery('')}
                   >
                      <Combobox.Options className='w-full absolute z-[999]

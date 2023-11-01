@@ -1,4 +1,4 @@
-import { carProps, rapidapiOptions } from "@/types";
+import { carProps, rapidapiOptions } from '@/types';
 
 export async function fetchCarData() {
 
