@@ -5,7 +5,6 @@ import { SearchManufacturerProps } from '@/types';
 import {Transition, Combobox} from '@headlessui/react';
 import { useState, Fragment } from 'react';
 import {manufacturers} from '@/constants';
-import { log } from 'console';
 
 export default function SearchManufacturer(
    {manufacturer, setManufacturer}: SearchManufacturerProps
@@ -51,8 +50,8 @@ export default function SearchManufacturer(
                   >
                      <Combobox.Options className='w-full absolute z-[999]
                         max-h-72 cursor-default text-left sm:text-sm
-                        rounded-b-md bg-white shadow-md overflow-auto
-                        mt-[-3px] ring-1 ring-black ring-opacity-5'
+                        rounded-b-md rounded-t-md mt-1 py-1 bg-white shadow-md overflow-auto
+                        ring-1 ring-black ring-opacity-5'
                      >
                         {filteredManufacturers.length === 0
                            // if no matching manufacturer

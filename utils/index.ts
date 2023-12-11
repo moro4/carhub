@@ -1,8 +1,18 @@
-import { carProps, rapidapiOptions } from '@/types';
+import { carProps, rapidapiOptions, FilterProps } from '@/types';
 
-export async function fetchCarData() {
+export async function fetchCarData(
+   {manufacturer, year, model, fuel, limit}: FilterProps
+) {
 
-   const url = 'https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=volkswagen';
+   const url = [
+      'https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?',
+      `make=${manufacturer}`,
+      `&year=${year}`,
+      `&model=${model}`,
+      `&limit=${limit}`,
+      `&fuel_type=${fuel}`
+   ].join('');
+
    const options: rapidapiOptions = {
       method: 'GET',
       headers: {
@@ -53,6 +63,16 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
    return rentalRatePerDay.toFixed(0);
 };
 
+
+export function updateSearchParams(type: string, value: string) {
+   const searchParams = new URLSearchParams(window.location.search);
+
+   value ? searchParams.set(type, value) : searchParams.delete(type);
+
+   const newPath = window.location.pathname + '?' + searchParams.toString();
+
+   return newPath;
+}
 
 // url.searchParams.append('customer', process.env.CARIMG_APIKEY as string);
 // url.searchParams.append('make', make);

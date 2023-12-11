@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
    return (
       <html lang='en'>
-         <body className={manrope.className + ' relative'}>
+         <body className={manrope.className + ' antialiased relative'}>
             <Navbar />
             {children}
             <Footer />
