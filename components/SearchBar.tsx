@@ -46,12 +46,14 @@ export default function SearchBar() {
             <SearchButton otherClasses='sm:hidden' />
          </div>
 
-         <div className='searchbar__item'>
+         <div className='searchbar__item rounded-md ring-1 ring-black
+            ring-opacity-5 shadow-md sm:ml-4'
+         >
             <Image
                src='/model-icon.png'
                width='25'
                height='25'
-               className='absolute w-[25px] h-[20px] sm:ml-8 ml-4'
+               className='absolute w-[20px] h-[20px] ml-4'
                alt='car model'
             />
             <input
@@ -60,8 +62,7 @@ export default function SearchBar() {
                value={model}
                onChange={(e) => setModel(e.target.value)}
                placeholder='Tiguan'
-               className='rounded-md ring-1 ring-black ring-opacity-5
-                  shadow-md searchbar__input sm:ml-4 sm:pl-14 w-full'
+               className='searchbar__input'
             />
             <SearchButton otherClasses='sm:hidden' />
          </div>
