@@ -4,9 +4,6 @@ import Image from 'next/image';
 import { CustomButton } from '.';
 
 export default function Hero() {
-   function handleScroll() {
-   }
-
    return (
       <div className='hero overflow-hidden'>
          <div className='flex-1 pt-36 padding-x'>
@@ -19,7 +16,6 @@ export default function Hero() {
             <CustomButton
                title='Explore Cars'
                containerStyles='bg-primary-blue text-white rounded-full mt-10'
-               handleClick={handleScroll}
             />
          </div>
          <div className='hero__image-container'>
