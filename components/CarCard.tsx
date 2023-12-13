@@ -63,7 +63,9 @@ export default function CardCard({ car }: carProps) {
                <div className='flex flex-col justify-center items-center
                   gap-2'
                >
-                  <Image src='/gas.svg' width='20' height='20' alt='gas' />
+                  <Image src='/gas.svg' width='20' height='20' alt='gas'
+                     className='w-[20px] h-[20px]'
+                  />
                   <p className='text-[14px]'>{city_mpg} MPG</p>
                </div>
 
