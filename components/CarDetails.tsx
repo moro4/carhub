@@ -22,11 +22,11 @@ export default function CarDetails(
          if (featuredImage.current instanceof HTMLImageElement &&
             event.target instanceof HTMLImageElement) {
 
-            const featuredImg = featuredImage.current.srcset;
-            const supImg = event.target.srcset;
-            featuredImage.current.srcset = supImg;
-            event.target.srcset = featuredImg;
-            featuredImage.current
+            const featuredImageSrc = featuredImage.current.src;
+            const supImageSrc = event.target.src;
+
+            featuredImage.current.srcset = supImageSrc;
+            event.target.srcset = featuredImageSrc;
          }
       }
 
