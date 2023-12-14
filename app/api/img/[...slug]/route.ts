@@ -13,12 +13,16 @@ export async function GET(
       url.searchParams.append('zoomType', zoomtype);
       url.searchParams.append('angle', angle);
 
-      // just forward the response to the frontend as is,
+      // just forward the response to the frontend as blob,
       // img's src attribute will handle it correctly
-      return await fetch(url);
-
+      const res = await fetch(url);
+      const blob = await res.blob();
+      return new Response(blob, {
+         status: 200,
+         headers: {
+            'Content-Type': 'image/webp'
+       }});
    } catch (error) {
       console.log('ROUTE HANDLER CAR IMAGE ERROR', error);
-
    }
 }

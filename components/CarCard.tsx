@@ -34,7 +34,7 @@ export default function CardCard({ car }: carProps) {
 
          {/* Car Image */}
          <div className='relative w-full h-40 m-3 object-contain'>
-            <Image src={constructCarImgURL(car)} alt='car' fill
+            <Image unoptimized src={constructCarImgURL(car)} alt='car' fill
                className='object-contain' />
          </div>
 

@@ -87,6 +87,7 @@ export default function CarDetails(
                                  bg-cover bg-center rounded-lg'
                               >
                                  <Image src={constructCarImgURL(car)}
+                                    unoptimized
                                     alt='car'
                                     fill
                                     className='object-contain p-3'
@@ -100,6 +101,7 @@ export default function CarDetails(
                                     bg-primary-blue-100 rounded-lg'
                                  >
                                     <Image src={constructCarImgURL(car, '13')}
+                                       unoptimized
                                        alt='car'
                                        fill
                                        className='object-contain'
@@ -110,6 +112,7 @@ export default function CarDetails(
                                     bg-primary-blue-100 rounded-lg'
                                  >
                                     <Image src={constructCarImgURL(car, '33')}
+                                       unoptimized
                                        alt='car'
                                        fill
                                        className='object-contain'
@@ -120,6 +123,7 @@ export default function CarDetails(
                                     bg-primary-blue-100 rounded-lg'
                                  >
                                     <Image src={constructCarImgURL(car, '29')}
+                                       unoptimized
                                        alt='car'
                                        fill
                                        className='object-contain'
